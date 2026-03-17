@@ -49,11 +49,15 @@ def index(path, chunk_duration, overlap):
 @cli.command()
 @click.argument("query")
 @click.option("-n", "--num-results", default=5, help="Number of results to return.")
-def search(query, num_results):
+@click.option("--trim-top", type=click.Path(), default=None,
+              help="If set, trim the top result and save to this directory.")
+def search(query, num_results, trim_top):
     """Search indexed footage with a natural language QUERY."""
-    from .search import search_clips
+    from .search import search_footage
+    from .store import SentryStore
 
-    results = search_clips(query, n_results=num_results)
+    store = SentryStore()
+    results = search_footage(query, store, n_results=num_results)
     if not results:
         click.echo("No results found.")
         return
@@ -62,7 +66,12 @@ def search(query, num_results):
         click.echo(f"\n--- Result {i} ---")
         click.echo(f"  Source: {result['source_file']}")
         click.echo(f"  Time:  {result['start_time']:.1f}s - {result['end_time']:.1f}s")
-        click.echo(f"  Score: {result['score']:.4f}")
+        click.echo(f"  Score: {result['similarity_score']:.4f}")
+
+    if trim_top:
+        from .trimmer import trim_top_result
+        clip_path = trim_top_result(results, trim_top)
+        click.echo(f"\nTrimmed top result to {clip_path}")
 
 
 @cli.command()
@@ -70,9 +79,10 @@ def search(query, num_results):
 @click.option("--start", required=True, type=float, help="Start time in seconds.")
 @click.option("--end", required=True, type=float, help="End time in seconds.")
 @click.option("-o", "--output", required=True, type=click.Path(), help="Output file path.")
-def trim(video, start, end, output):
+@click.option("--padding", default=2.0, help="Extra seconds before/after the clip.")
+def trim(video, start, end, output, padding):
     """Trim a clip from VIDEO between --start and --end seconds."""
     from .trimmer import trim_clip
 
-    trim_clip(video, start, end, output)
-    click.echo(f"Saved clip to {output}")
+    out = trim_clip(video, start, end, output, padding=padding)
+    click.echo(f"Saved clip to {out}")
