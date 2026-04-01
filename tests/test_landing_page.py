@@ -162,7 +162,7 @@ def test_landing_page_cta_links_point_to_expected_destinations():
     html = re.sub(r"\s+", " ", read_html())
     assert f'<a href="#sample-search">Explore the search preview</a>' in html
     assert (
-        '<a href="mailto:demo@sentrysearch.my?subject=SentrySearch%20early%20access&body=Hi%20SentrySearch%2C%20I%20want%20to%20reserve%20early%20access%20for%20SentrySearch.">Request a hosted demo</a>'
+        '<a href="mailto:hello@sentrysearch.my?subject=SentrySearch%20hosted%20demo&body=Hi%20SentrySearch%2C%20I%20want%20to%20request%20a%20hosted%20demo.">Request a hosted demo</a>'
         in html
     )
     assert "bundled example data" in html
@@ -172,8 +172,8 @@ def test_landing_page_cta_links_point_to_expected_destinations():
     assert final_cta is not None
     final_cta_html = final_cta.group(0)
 
-    assert '<a href="mailto:demo@sentrysearch.my?subject=SentrySearch%20early%20access&body=Hi%20SentrySearch%2C%20I%20want%20to%20reserve%20early%20access%20for%20SentrySearch.">Reserve early access</a>' in final_cta_html
-    assert '<a href="mailto:demo@sentrysearch.my?subject=SentrySearch%20hosted%20demo&body=Hi%20SentrySearch%2C%20I%20want%20to%20request%20a%20hosted%20demo.">Request hosted demo</a>' in final_cta_html
+    assert '<a href="mailto:hello@sentrysearch.my?subject=SentrySearch%20early%20access&body=Hi%20SentrySearch%2C%20I%20want%20to%20reserve%20early%20access%20for%20SentrySearch.">Reserve early access</a>' in final_cta_html
+    assert '<a href="mailto:hello@sentrysearch.my?subject=SentrySearch%20hosted%20demo&body=Hi%20SentrySearch%2C%20I%20want%20to%20request%20a%20hosted%20demo.">Request hosted demo</a>' in final_cta_html
     assert "Explore the search preview" not in final_cta_html
     assert "GitHub" not in final_cta_html
 
@@ -216,6 +216,7 @@ def test_supporting_pages_exist_with_professional_footer_links():
       assert "SentrySearch" in page_html
       assert 'class="site-header"' in page_html
       assert 'class="site-footer"' in page_html
+      assert "hello@sentrysearch.my" in page_html
       assert "./robots.txt" not in page_html
       assert "./sitemap.xml" not in page_html
 
