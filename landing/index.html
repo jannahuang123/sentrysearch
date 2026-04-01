@@ -52,7 +52,23 @@
 
       <section id="sample-search" aria-labelledby="sample-search-title">
         <h2 id="sample-search-title">Sample search</h2>
-        <p>Try a real-world query against footage you already know.</p>
+        <p>
+          This demo-only sample search is powered by bundled example data and does not process live
+          user footage or backend inference.
+        </p>
+        <div id="sample-presets" aria-label="Sample search presets"></div>
+        <form id="sample-search-form">
+          <label for="sample-query-input">Search the demo footage</label>
+          <input
+            id="sample-query-input"
+            name="query"
+            type="text"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button type="submit">Search sample clips</button>
+        </form>
+        <div id="sample-results" aria-live="polite"></div>
       </section>
 
       <section id="how-it-works" aria-labelledby="how-it-works-title">
