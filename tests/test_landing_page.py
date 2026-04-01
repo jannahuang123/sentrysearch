@@ -120,7 +120,7 @@ def test_landing_page_has_product_copy_and_ctas():
         "bundled example data",
         "demo-only",
         "does not process live user footage or backend inference",
-        "Run locally today",
+        "Reserve early access",
         "Request hosted demo",
         "What is SentrySearch?",
         "Find the moment a car cut in front of me",
@@ -161,7 +161,10 @@ def test_landing_page_targets_single_page_seo_depth():
 def test_landing_page_cta_links_point_to_expected_destinations():
     html = re.sub(r"\s+", " ", read_html())
     assert f'<a href="#sample-search">Try the sample search</a>' in html
-    assert '<a href="mailto:demo@sentrysearch.my">Request a hosted demo</a>' in html
+    assert (
+        '<a href="mailto:demo@sentrysearch.my?subject=SentrySearch%20early%20access&body=Hi%20SentrySearch%2C%20I%20want%20to%20reserve%20early%20access%20for%20SentrySearch.">Request a hosted demo</a>'
+        in html
+    )
     assert "bundled example data" in html
     assert "does not process live user footage or backend inference" in html
 
@@ -169,8 +172,8 @@ def test_landing_page_cta_links_point_to_expected_destinations():
     assert final_cta is not None
     final_cta_html = final_cta.group(0)
 
-    assert '<a href="mailto:demo@sentrysearch.my">Request a hosted demo</a>' in final_cta_html
-    assert '<a href="mailto:demo@sentrysearch.my">Request hosted demo</a>' in final_cta_html
+    assert '<a href="mailto:demo@sentrysearch.my?subject=SentrySearch%20early%20access&body=Hi%20SentrySearch%2C%20I%20want%20to%20reserve%20early%20access%20for%20SentrySearch.">Reserve early access</a>' in final_cta_html
+    assert '<a href="mailto:demo@sentrysearch.my?subject=SentrySearch%20hosted%20demo&body=Hi%20SentrySearch%2C%20I%20want%20to%20request%20a%20hosted%20demo.">Request hosted demo</a>' in final_cta_html
     assert "Try the sample search" not in final_cta_html
     assert "GitHub" not in final_cta_html
 
@@ -284,8 +287,8 @@ def test_landing_page_has_seo_sections_and_ctas():
         "SentrySearch For Security Footage",
         "How SentrySearch Works",
         "SentrySearch FAQ",
-        "Run SentrySearch locally",
-        "Request a hosted demo",
+        "Reserve early access",
+        "Request hosted demo",
     ]:
         assert text in html
 
