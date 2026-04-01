@@ -216,6 +216,8 @@ def test_supporting_pages_exist_with_professional_footer_links():
       assert "SentrySearch" in page_html
       assert 'class="site-header"' in page_html
       assert 'class="site-footer"' in page_html
+      assert "./robots.txt" not in page_html
+      assert "./sitemap.xml" not in page_html
 
     for phrase in [
         'href="./about.html"',
@@ -226,6 +228,10 @@ def test_supporting_pages_exist_with_professional_footer_links():
         "Terms",
     ]:
         assert phrase in landing_html
+
+    assert "./robots.txt" not in landing_html
+    assert "./sitemap.xml" not in landing_html
+    assert ">Hosted demo<" not in landing_html
 
 
 def test_privacy_and_terms_pages_cover_expected_sections():
