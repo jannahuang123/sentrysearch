@@ -203,7 +203,7 @@ def test_landing_page_has_rewritten_meta_copy():
     title = title_match.group(1).strip()
     assert "SentrySearch: Smart Video Search for Dashcams" == title
     assert 40 <= len(title) <= 60
-    assert "SentrySearch helps you search dashcam footage and security footage in natural language" in html
+    assert "SentrySearch introduces a new way to search dashcam footage and security footage in natural language" in html
     assert 'property="og:description"' in html
 
 
