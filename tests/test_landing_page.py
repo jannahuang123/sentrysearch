@@ -37,9 +37,24 @@ def test_landing_page_has_core_sections():
         'id="final-cta"',
         'id="sample-search-form"',
         'id="sample-query-input"',
+        'id="sample-presets"',
         'id="sample-results"',
     ]:
         assert marker in html
+
+
+def test_landing_page_has_layout_wrapper_classes():
+    html = read_html()
+    for marker in [
+        'class="hero-actions"',
+        'class="query-list"',
+        'class="demo-shell"',
+        'class="cta-band"',
+    ]:
+        assert marker in html
+
+    css = (REPO_ROOT / "landing" / "styles.css").read_text(encoding="utf-8")
+    assert "#sample-presets button" in css
 
 
 def test_landing_page_has_sample_search_demo_data():
