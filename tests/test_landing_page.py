@@ -176,7 +176,7 @@ def test_landing_page_cta_links_point_to_expected_destinations():
     final_cta_html = final_cta.group(0)
 
     assert f'<a href="{repo_url}">Run locally today</a>' in final_cta_html
-    assert '<a href="mailto:demo@sentrysearch.com">Request hosted demo</a>' in final_cta_html
+    assert '<a href="mailto:demo@sentrysearch.my">Request hosted demo</a>' in final_cta_html
     assert "Try the sample search" not in final_cta_html
     assert "View on GitHub" not in final_cta_html
 
@@ -271,13 +271,13 @@ def test_robots_and_sitemap_exist_for_crawlers():
 
     assert "User-agent: *" in robots
     assert "Allow: /" in robots
-    assert "Sitemap: https://sentrysearch.com/sitemap.xml" in robots
+    assert "Sitemap: https://sentrysearch.my/sitemap.xml" in robots
 
     for url in [
-        "https://sentrysearch.com/",
-        "https://sentrysearch.com/about.html",
-        "https://sentrysearch.com/privacy.html",
-        "https://sentrysearch.com/terms.html",
+        "https://sentrysearch.my/",
+        "https://sentrysearch.my/about.html",
+        "https://sentrysearch.my/privacy.html",
+        "https://sentrysearch.my/terms.html",
     ]:
         assert url in sitemap
 

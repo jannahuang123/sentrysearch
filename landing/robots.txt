@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sentrysearch.com/sitemap.xml
+Sitemap: https://sentrysearch.my/sitemap.xml
