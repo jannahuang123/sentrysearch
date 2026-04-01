@@ -48,7 +48,7 @@ function renderResults(container, query, inputValue) {
   clearNode(container);
 
   if (!query) {
-    container.appendChild(createElement("p", "No matching bundled demo clip found for this incident."));
+    container.appendChild(createElement("p", "No matching bundled preview clip found for this incident."));
     return;
   }
 
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  results.textContent = "Loading bundled demo clips...";
+  results.textContent = "Loading bundled preview clips...";
 
   try {
     state.queries = await loadDemoData();
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       setActiveQuery(matchedQuery, input, results);
     });
   } catch (error) {
-    results.textContent = "Bundled sample search data could not be loaded.";
+    results.textContent = "Bundled search preview data could not be loaded.";
     console.error(error);
   }
 });

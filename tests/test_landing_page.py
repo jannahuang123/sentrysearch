@@ -116,9 +116,9 @@ def test_landing_page_has_product_copy_and_ctas():
     for phrase in [
         "Search dashcam and security footage in natural language",
         "automatically trims the matching clip",
-        "Try the sample search",
+        "Explore the search preview",
         "bundled example data",
-        "demo-only",
+        "preview-only",
         "does not process live user footage or backend inference",
         "Reserve early access",
         "Request hosted demo",
@@ -160,7 +160,7 @@ def test_landing_page_targets_single_page_seo_depth():
 
 def test_landing_page_cta_links_point_to_expected_destinations():
     html = re.sub(r"\s+", " ", read_html())
-    assert f'<a href="#sample-search">Try the sample search</a>' in html
+    assert f'<a href="#sample-search">Explore the search preview</a>' in html
     assert (
         '<a href="mailto:demo@sentrysearch.my?subject=SentrySearch%20early%20access&body=Hi%20SentrySearch%2C%20I%20want%20to%20reserve%20early%20access%20for%20SentrySearch.">Request a hosted demo</a>'
         in html
@@ -174,7 +174,7 @@ def test_landing_page_cta_links_point_to_expected_destinations():
 
     assert '<a href="mailto:demo@sentrysearch.my?subject=SentrySearch%20early%20access&body=Hi%20SentrySearch%2C%20I%20want%20to%20reserve%20early%20access%20for%20SentrySearch.">Reserve early access</a>' in final_cta_html
     assert '<a href="mailto:demo@sentrysearch.my?subject=SentrySearch%20hosted%20demo&body=Hi%20SentrySearch%2C%20I%20want%20to%20request%20a%20hosted%20demo.">Request hosted demo</a>' in final_cta_html
-    assert "Try the sample search" not in final_cta_html
+    assert "Explore the search preview" not in final_cta_html
     assert "GitHub" not in final_cta_html
 
 
@@ -182,8 +182,8 @@ def test_sample_search_is_wired_to_bundled_demo_data():
     app_js = (REPO_ROOT / "landing" / "app.js").read_text(encoding="utf-8")
     assert 'const DEMO_DATA_URL = "./demo-data.json";' in app_js
     assert "fetch(DEMO_DATA_URL)" in app_js
-    assert "Loading bundled demo clips..." in app_js
-    assert "Bundled sample search data could not be loaded." in app_js
+    assert "Loading bundled preview clips..." in app_js
+    assert "Bundled search preview data could not be loaded." in app_js
     assert "return timestamp;" in app_js
     assert "new Date(timestamp)" not in app_js
     assert "toLocaleString" not in app_js
