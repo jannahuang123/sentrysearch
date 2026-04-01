@@ -1,0 +1,56 @@
+[
+  {
+    "label": "Cut-in event",
+    "prompt": "Find the moment a car cut in front of me",
+    "results": [
+      {
+        "camera": "front dashcam",
+        "timestamp": "02:15-02:45",
+        "score": 0.96,
+        "clip_label": "Lane merge and hard brake"
+      },
+      {
+        "camera": "rear dashcam",
+        "timestamp": "02:46-03:04",
+        "score": 0.74,
+        "clip_label": "Follow-up traffic gap"
+      }
+    ]
+  },
+  {
+    "label": "Driveway approach",
+    "prompt": "Find when someone approached the driveway",
+    "results": [
+      {
+        "camera": "porch camera",
+        "timestamp": "00:42-01:10",
+        "score": 0.94,
+        "clip_label": "Visitor walking up to gate"
+      },
+      {
+        "camera": "driveway camera",
+        "timestamp": "01:11-01:33",
+        "score": 0.81,
+        "clip_label": "Car stopping at curb"
+      }
+    ]
+  },
+  {
+    "label": "Red truck",
+    "prompt": "Find the clip with a red truck near the stop sign",
+    "results": [
+      {
+        "camera": "front dashcam",
+        "timestamp": "04:05-04:31",
+        "score": 0.98,
+        "clip_label": "Red pickup near stop sign"
+      },
+      {
+        "camera": "intersection camera",
+        "timestamp": "04:32-04:58",
+        "score": 0.76,
+        "clip_label": "Cross traffic entering frame"
+      }
+    ]
+  }
+]

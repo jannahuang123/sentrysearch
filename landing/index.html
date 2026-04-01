@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SentrySearch: Search Dashcam and Security Video with Natural Language</title>
+    <meta
+      name="description"
+      content="SentrySearch searches dashcam and security footage in natural language and automatically trims the matching clip."
+    />
+    <link rel="canonical" href="https://sentrysearch.com/" />
+    <meta
+      property="og:title"
+      content="SentrySearch: Search Dashcam and Security Video with Natural Language"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section id="hero" class="hero" aria-labelledby="hero-title">
+        <div class="section-shell hero-shell">
+          <p class="eyebrow">Search dashcam and security footage in natural language.</p>
+          <h1 id="hero-title">
+            SentrySearch: Search Dashcam and Security Video with Natural Language
+          </h1>
+          <p class="lede">
+            Describe the moment you need and SentrySearch finds the matching clip, automatically
+            trimming the matching clip so the answer is ready to review.
+          </p>
+          <nav class="hero-actions" aria-label="Primary calls to action">
+            <a href="#sample-search">Try the sample search</a>
+            <a href="https://github.com/jannahuang123/sentrysearch" rel="noopener noreferrer"
+              >View on GitHub</a
+            >
+          </nav>
+        </div>
+      </section>
+
+      <section id="definition" class="content-section" aria-labelledby="definition-title">
+        <div class="section-shell copy-shell">
+          <h2 id="definition-title">What is SentrySearch?</h2>
+          <p>
+            SentrySearch is a natural-language search tool for dashcam and security footage. It
+            turns a question into a relevant clip so you can jump straight to the moment that
+            matters.
+          </p>
+        </div>
+      </section>
+
+      <section id="use-cases" class="content-section" aria-labelledby="use-cases-title">
+        <div class="section-shell copy-shell">
+          <h2 id="use-cases-title">Common use cases</h2>
+          <ul class="feature-list">
+            <li>Find the moment a car cut in front of me</li>
+            <li>Find when someone approached the driveway</li>
+            <li>Find the clip with a red truck near the stop sign</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="sample-search" class="content-section" aria-labelledby="sample-search-title">
+        <div class="section-shell">
+          <div class="demo-shell">
+            <div class="copy-shell">
+              <h2 id="sample-search-title">Sample search</h2>
+              <p>
+                This demo-only sample search is powered by bundled example data and does not
+                process live user footage or backend inference.
+              </p>
+            </div>
+            <div class="query-list">
+              <div id="sample-presets" aria-label="Sample search presets"></div>
+              <div id="sample-results" aria-live="polite"></div>
+            </div>
+            <form id="sample-search-form" class="demo-form">
+              <label for="sample-query-input">Search the demo footage</label>
+              <div class="input-row">
+                <input
+                  id="sample-query-input"
+                  name="query"
+                  type="text"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+                <button type="submit">Search sample clips</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="content-section" aria-labelledby="how-it-works-title">
+        <div class="section-shell copy-shell">
+          <h2 id="how-it-works-title">How it works</h2>
+          <p>
+            SentrySearch indexes video moments, matches the language in your request, and surfaces
+            the clip that best fits the event you described.
+          </p>
+        </div>
+      </section>
+
+      <section id="faq" class="content-section" aria-labelledby="faq-title">
+        <div class="section-shell copy-shell">
+          <h2 id="faq-title">FAQ</h2>
+          <dl class="faq-list">
+            <div>
+              <dt>Does SentrySearch upload my videos?</dt>
+              <dd>No. You can keep the workflow local and control where your footage lives.</dd>
+            </div>
+            <div>
+              <dt>Can I run SentrySearch locally?</dt>
+              <dd>Yes. It is designed to run on your own machine for local searches.</dd>
+            </div>
+            <div>
+              <dt>Is this a Tesla Sentry Mode tool only?</dt>
+              <dd>
+                No. SentrySearch is built for dashcam and security footage, not just Tesla Sentry
+                Mode clips.
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="final-cta" class="cta-band" aria-labelledby="final-cta-title">
+        <div class="section-shell cta-shell">
+          <div class="copy-shell">
+            <h2 id="final-cta-title">Ready to try it?</h2>
+            <p>Choose the path that fits your setup today.</p>
+          </div>
+          <nav aria-label="Final calls to action">
+            <a href="https://github.com/jannahuang123/sentrysearch">Run locally today</a>
+            <a href="mailto:demo@sentrysearch.com">Request hosted demo</a>
+          </nav>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
