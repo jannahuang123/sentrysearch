@@ -1,55 +1,67 @@
 [
   {
-    "label": "Cut-in event",
-    "prompt": "Find the moment a car cut in front of me",
+    "label": "Parking lot incident",
+    "prompt": "Find the parking lot incident where a gray SUV opened a door into my car",
     "results": [
       {
-        "camera": "front dashcam",
-        "timestamp": "02:15-02:45",
-        "score": 0.96,
-        "clip_label": "Lane merge and hard brake"
+        "camera": "front left side repeater",
+        "timestamp": "00:12-00:34",
+        "score": 0.97,
+        "incident": "Door contact in parking row C",
+        "status": "Clip extraction ready",
+        "clip_label": "Gray SUV door opens into parked vehicle"
       },
       {
-        "camera": "rear dashcam",
-        "timestamp": "02:46-03:04",
-        "score": 0.74,
-        "clip_label": "Follow-up traffic gap"
+        "camera": "rear camera",
+        "timestamp": "00:35-00:49",
+        "score": 0.83,
+        "incident": "Driver exits after contact",
+        "status": "Matched clip saved",
+        "clip_label": "Driver steps out and checks damage"
       }
     ]
   },
   {
     "label": "Driveway approach",
-    "prompt": "Find when someone approached the driveway",
+    "prompt": "Find when someone approached the driveway camera after dark",
     "results": [
       {
-        "camera": "porch camera",
-        "timestamp": "00:42-01:10",
-        "score": 0.94,
-        "clip_label": "Visitor walking up to gate"
+        "camera": "driveway camera",
+        "timestamp": "01:44-02:08",
+        "score": 0.95,
+        "incident": "Visitor approaches the side gate",
+        "status": "Clip extraction ready",
+        "clip_label": "Person walks from curb to gate"
       },
       {
-        "camera": "driveway camera",
-        "timestamp": "01:11-01:33",
-        "score": 0.81,
-        "clip_label": "Car stopping at curb"
+        "camera": "porch camera",
+        "timestamp": "02:09-02:26",
+        "score": 0.79,
+        "incident": "Vehicle pauses at curb",
+        "status": "Matched clip saved",
+        "clip_label": "White sedan slows near mailbox"
       }
     ]
   },
   {
-    "label": "Red truck",
-    "prompt": "Find the clip with a red truck near the stop sign",
+    "label": "Highway cut-in",
+    "prompt": "Find the driving incident where a pickup cut in front of me and I had to brake hard",
     "results": [
       {
         "camera": "front dashcam",
-        "timestamp": "04:05-04:31",
-        "score": 0.98,
-        "clip_label": "Red pickup near stop sign"
+        "timestamp": "03:05-03:29",
+        "score": 0.96,
+        "incident": "Highway merge with sudden brake",
+        "status": "Clip extraction ready",
+        "clip_label": "Pickup merges into lane and traffic compresses"
       },
       {
-        "camera": "intersection camera",
-        "timestamp": "04:32-04:58",
-        "score": 0.76,
-        "clip_label": "Cross traffic entering frame"
+        "camera": "rear dashcam",
+        "timestamp": "03:30-03:43",
+        "score": 0.78,
+        "incident": "Following traffic reacts",
+        "status": "Matched clip saved",
+        "clip_label": "Rear view shows abrupt slowdown"
       }
     ]
   }

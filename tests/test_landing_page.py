@@ -6,6 +6,11 @@ import re
 REPO_ROOT = Path(__file__).resolve().parents[1]
 LANDING_HTML = REPO_ROOT / "landing" / "index.html"
 LANDING_DEMO_DATA = REPO_ROOT / "landing" / "demo-data.json"
+ABOUT_HTML = REPO_ROOT / "landing" / "about.html"
+PRIVACY_HTML = REPO_ROOT / "landing" / "privacy.html"
+TERMS_HTML = REPO_ROOT / "landing" / "terms.html"
+ROBOTS_TXT = REPO_ROOT / "landing" / "robots.txt"
+SITEMAP_XML = REPO_ROOT / "landing" / "sitemap.xml"
 
 
 def read_html() -> str:
@@ -22,12 +27,15 @@ def test_landing_page_has_required_seo_shell():
     assert 'content="SentrySearch searches dashcam and security footage in natural language and automatically trims the matching clip."' in html
     assert 'rel="canonical"' in html
     assert 'property="og:title"' in html
-    assert "SentrySearch: Search Dashcam and Security Video with Natural Language" in html
+    assert "SentrySearch: Smart Video Search for Dashcams" in html
 
 
 def test_landing_page_has_core_sections():
     html = read_html()
     for marker in [
+        'class="site-header"',
+        'class="brand-mark"',
+        'class="site-footer"',
         'id="hero"',
         'id="definition"',
         'id="use-cases"',
@@ -50,11 +58,41 @@ def test_landing_page_has_layout_wrapper_classes():
         'class="query-list"',
         'class="demo-shell"',
         'class="cta-band"',
+        'class="hero-grid"',
+        'class="hero-stage"',
+        'class="hero-showcase"',
+        'class="hero-visual"',
+        'class="hero-panel"',
+        'class="proof-grid"',
+        'class="scene-card"',
+        'class="seo-section"',
     ]:
         assert marker in html
 
     css = (REPO_ROOT / "landing" / "styles.css").read_text(encoding="utf-8")
     assert "#sample-presets button" in css
+    normalized_css = css.replace(" ", "").lower()
+    for marker in [
+        "--bg:#0b1326",
+        "--panel:#131b2e",
+        "--panel-high:#222a3d",
+        ".hero-panel",
+        ".scene-card",
+    ]:
+        assert marker in normalized_css
+
+
+def test_landing_page_has_expanded_heading_hierarchy():
+    html = read_html()
+    for text in [
+        "What Is SentrySearch?",
+        "Why Teams Use SentrySearch",
+        "SentrySearch For Dashcam Footage",
+        "SentrySearch For Security Footage",
+        "How SentrySearch Works",
+        "SentrySearch FAQ",
+    ]:
+        assert text in html
 
 
 def test_landing_page_has_sample_search_demo_data():
@@ -96,6 +134,31 @@ def test_landing_page_has_product_copy_and_ctas():
         assert phrase in html
 
 
+def test_landing_page_targets_single_page_seo_depth():
+    html = re.sub(r"\s+", " ", read_html())
+    body = re.sub(r"<[^>]+>", " ", html)
+    body = re.sub(r"\s+", " ", body).strip()
+    word_count = len([word for word in body.split() if word.strip()])
+    sentrysearch_count = body.lower().count("sentrysearch")
+
+    assert 1500 <= word_count <= 2200
+    density = sentrysearch_count / word_count
+    assert 0.03 <= density <= 0.05
+
+    for phrase in [
+        "dashcam footage",
+        "security footage",
+        "driving incidents",
+        "parking lot incident",
+        "driveway camera",
+        "incident review",
+        "clip extraction",
+        "matched clip",
+        "video incident search",
+    ]:
+        assert phrase in body.lower()
+
+
 def test_landing_page_cta_links_point_to_expected_destinations():
     html = re.sub(r"\s+", " ", read_html())
     repo_url = "https://github.com/jannahuang123/sentrysearch"
@@ -113,7 +176,7 @@ def test_landing_page_cta_links_point_to_expected_destinations():
     final_cta_html = final_cta.group(0)
 
     assert f'<a href="{repo_url}">Run locally today</a>' in final_cta_html
-    assert '<a href="mailto:demo@sentrysearch.com">Request hosted demo</a>' in final_cta_html
+    assert '<a href="mailto:demo@sentrysearch.my">Request hosted demo</a>' in final_cta_html
     assert "Try the sample search" not in final_cta_html
     assert "View on GitHub" not in final_cta_html
 
@@ -134,3 +197,110 @@ def test_readme_mentions_landing_page_preview():
     assert "Landing page" in readme
     assert "python -m http.server" in readme
     assert "landing/" in readme
+
+
+def test_landing_page_has_rewritten_meta_copy():
+    html = re.sub(r"\s+", " ", read_html())
+    title_match = re.search(r"<title>(.*?)</title>", html)
+    assert title_match is not None
+    title = title_match.group(1).strip()
+    assert "SentrySearch: Smart Video Search for Dashcams" == title
+    assert 40 <= len(title) <= 60
+    assert "SentrySearch helps you search dashcam footage and security footage in natural language" in html
+    assert 'property="og:description"' in html
+
+
+def test_supporting_pages_exist_with_professional_footer_links():
+    landing_html = read_html()
+
+    for file_path in [ABOUT_HTML, PRIVACY_HTML, TERMS_HTML]:
+      assert file_path.exists()
+      page_html = file_path.read_text(encoding="utf-8")
+      assert "SentrySearch" in page_html
+      assert 'class="site-header"' in page_html
+      assert 'class="site-footer"' in page_html
+
+    for phrase in [
+        'href="./about.html"',
+        'href="./privacy.html"',
+        'href="./terms.html"',
+        "About",
+        "Privacy",
+        "Terms",
+    ]:
+        assert phrase in landing_html
+
+
+def test_privacy_and_terms_pages_cover_expected_sections():
+    privacy_html = PRIVACY_HTML.read_text(encoding="utf-8")
+    terms_html = TERMS_HTML.read_text(encoding="utf-8")
+    about_html = ABOUT_HTML.read_text(encoding="utf-8")
+
+    for phrase in [
+        "Privacy Policy",
+        "Information We Collect",
+        "How We Use Information",
+        "Data Retention",
+        "Contact",
+    ]:
+        assert phrase in privacy_html
+
+    for phrase in [
+        "Terms of Use",
+        "Acceptable Use",
+        "Disclaimers",
+        "Limitation of Liability",
+        "Contact",
+    ]:
+        assert phrase in terms_html
+
+    for phrase in [
+        "About SentrySearch",
+        "Why we built SentrySearch",
+        "Who SentrySearch is for",
+    ]:
+        assert phrase in about_html
+
+
+def test_robots_and_sitemap_exist_for_crawlers():
+    assert ROBOTS_TXT.exists()
+    assert SITEMAP_XML.exists()
+
+    robots = ROBOTS_TXT.read_text(encoding="utf-8")
+    sitemap = SITEMAP_XML.read_text(encoding="utf-8")
+
+    assert "User-agent: *" in robots
+    assert "Allow: /" in robots
+    assert "Sitemap: https://sentrysearch.my/sitemap.xml" in robots
+
+    for url in [
+        "https://sentrysearch.my/",
+        "https://sentrysearch.my/about.html",
+        "https://sentrysearch.my/privacy.html",
+        "https://sentrysearch.my/terms.html",
+    ]:
+        assert url in sitemap
+
+
+def test_landing_page_has_seo_sections_and_ctas():
+    html = read_html()
+    for text in [
+        "Why Teams Use SentrySearch",
+        "SentrySearch For Dashcam Footage",
+        "SentrySearch For Security Footage",
+        "How SentrySearch Works",
+        "SentrySearch FAQ",
+        "Run SentrySearch locally",
+        "Request a hosted demo",
+    ]:
+        assert text in html
+
+
+def test_sample_search_demo_matches_incident_review_language():
+    html = read_html().lower()
+    app_js = (REPO_ROOT / "landing" / "app.js").read_text(encoding="utf-8").lower()
+    demo_data = read_demo_data()
+
+    assert "bundled example data" in html
+    assert "incident" in app_js
+    assert any("parking" in item["prompt"].lower() for item in demo_data)
