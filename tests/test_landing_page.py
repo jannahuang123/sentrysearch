@@ -127,7 +127,7 @@ def test_landing_page_has_product_copy_and_ctas():
         "Find when someone approached the driveway",
         "Find the clip with a red truck near the stop sign",
         "Does SentrySearch upload my videos?",
-        "Can I run SentrySearch locally?",
+        "Can I reserve early access today?",
         "Is this a Tesla Sentry Mode tool only?",
     ]:
         assert phrase in html
