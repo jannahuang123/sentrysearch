@@ -211,6 +211,121 @@ Prefer:
 
 The design should feel modern and intentional, but the visual system should support comprehension first. This is a definition page with product proof, not a decorative brand campaign.
 
+## Visual Direction Update
+
+After reviewing visual references in `stitch/`, the approved visual direction is no longer a light Product Hunt-style SaaS page. The landing page should instead move closer to a dark, night-dashboard product style while remaining a marketing homepage rather than a full application shell.
+
+Approved direction:
+
+- dark landing page with strong product-control-panel energy
+- closer to a serious video operations dashboard than a generic SaaS template
+- visually aligned with the "dashboard at night" feel from the `stitch/` references
+- product-first, not AI-first
+
+This update replaces the earlier assumption of a bright, airy SaaS landing page.
+
+## Hero Visual System
+
+The hero should use a two-column structure:
+
+- left side: concise headline, support copy, and primary CTA pair
+- right side: a polished product panel that looks like a real incident-search interface
+
+The right-side panel should show product evidence, not abstract decoration. It should include some combination of:
+
+- a realistic query
+- a matched clip card
+- clip range or timestamp range
+- confidence or match quality signal
+- camera/source metadata
+- clip saved/exported state
+
+The visual should feel like a premium control surface, not an illustration.
+
+## Image Strategy Update
+
+The approved image system is:
+
+- product UI plus real-world scenes
+
+This means the page should combine interface-driven visuals with realistic dashcam/security imagery. It should not rely on stock-photo-heavy lifestyle marketing, and it should not use abstract AI art.
+
+Recommended visual assets:
+
+- one primary product mockup or control-panel composition in the hero
+- two or three supporting visual cards tied to concrete event scenarios
+- real-world scene backplates for dashcam, parking lot, or driveway moments
+
+Every visual should reinforce the core action:
+
+1. describe the incident
+2. locate the right moment
+3. save the matching clip
+
+## Scene Prioritization
+
+The primary market-facing scenario should be dashcam and driving incidents.
+
+The page should lead with examples such as:
+
+- a car cutting in front
+- a parking lot incident
+- a near miss at an intersection
+
+Security-footage scenarios should still appear, but as secondary expansion use cases rather than the first visual story.
+
+## Layout Personality
+
+The page should preserve landing-page clarity while borrowing the best aspects of application UI:
+
+- strong sectional framing
+- compact metadata chips and labels
+- result cards with state indicators
+- restrained, high-contrast palette
+- subtle lighting and surface depth
+
+Avoid turning the page into a fake full dashboard with heavy navigation chrome or too many app-like controls. The visitor should still understand immediately that this is a homepage.
+
+## Color And Typography Direction
+
+The palette should be dark and restrained:
+
+- deep navy, obsidian, slate, and muted steel tones
+- restrained blue/teal highlights for active states
+- high-contrast text with muted support copy
+
+Typography should feel more premium and product-grade than generic startup marketing. The page should read like serious software, not a playful AI tool.
+
+## Copy Direction Update
+
+The copy should be less "AI landing page" and more "serious incident retrieval product."
+
+Prefer wording around:
+
+- incidents
+- footage
+- matched clips
+- saved evidence
+- exact moments
+- incident review
+
+De-emphasize language around:
+
+- AI magic
+- automation hype
+- generic platform claims
+
+## Implementation Impact
+
+Any future visual implementation should treat the current landing page as functionally correct but stylistically provisional.
+
+The next implementation phase should focus on:
+
+- reworking the page into the approved dark visual system
+- replacing the current light SaaS styling
+- introducing product-panel compositions and scene-backed visuals
+- preserving all existing product boundaries, copy constraints, CTA intent, and demo-only behavior
+
 ## Non-Goals
 
 The first release should explicitly avoid:
