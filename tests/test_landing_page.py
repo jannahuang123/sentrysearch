@@ -127,3 +127,10 @@ def test_sample_search_is_wired_to_bundled_demo_data():
     assert "return timestamp;" in app_js
     assert "new Date(timestamp)" not in app_js
     assert "toLocaleString" not in app_js
+
+
+def test_readme_mentions_landing_page_preview():
+    readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
+    assert "Landing page" in readme
+    assert "python -m http.server" in readme
+    assert "landing/" in readme

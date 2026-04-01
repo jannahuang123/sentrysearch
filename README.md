@@ -6,6 +6,17 @@ Semantic search over video footage. Type what you're looking for, get a trimmed 
 
 [<video src="https://github.com/ssrajadh/sentrysearch/raw/main/docs/demo.mp4" controls width="100%"></video>](https://github.com/user-attachments/assets/baf98fad-080b-48e1-97f5-a2db2cbd53f5)
 
+## Landing page
+
+The repository includes a static landing page in `landing/`. It is just HTML, CSS, and vanilla JavaScript, so you can preview it locally without any build step:
+
+```bash
+cd landing
+python -m http.server
+```
+
+Then open the local server in your browser and check the landing page before shipping changes.
+
 ## How it works
 
 SentrySearch splits your mp4 videos into overlapping chunks, embeds each chunk as video using either Google's Gemini Embedding API or a local Qwen3-VL model, and stores the vectors in a local ChromaDB database. When you search, your text query is embedded into the same vector space and matched against the stored video embeddings. The top match is automatically trimmed from the original file and saved as a clip.
