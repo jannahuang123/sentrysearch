@@ -37,11 +37,18 @@ function renderPresets(container, queries, onSelect) {
   });
 }
 
+function renderResultRow(label, value) {
+  const row = document.createElement("div");
+  row.appendChild(createElement("dt", label));
+  row.appendChild(createElement("dd", value));
+  return row;
+}
+
 function renderResults(container, query, inputValue) {
   clearNode(container);
 
   if (!query) {
-    container.appendChild(createElement("p", "No matching bundled demo clip found."));
+    container.appendChild(createElement("p", "No matching bundled demo clip found for this incident."));
     return;
   }
 
@@ -52,7 +59,7 @@ function renderResults(container, query, inputValue) {
 
   const detailSummary = createElement(
     "p",
-    `Showing the closest trimmed preview from bundled example data for "${query.label}".`,
+    `Incident review uses bundled example data to preview the matched clip for "${query.label}".`,
   );
 
   container.appendChild(querySummary);
@@ -60,18 +67,17 @@ function renderResults(container, query, inputValue) {
 
   query.results.forEach((result) => {
     const article = createElement("article");
-    const heading = createElement("h3", result.clip_label);
+    const heading = createElement("h4", result.clip_label);
     const details = document.createElement("dl");
 
     [
       ["Camera", result.camera],
-      ["Timestamp", formatTimestamp(result.timestamp)],
-      ["Score", result.score.toFixed(2)],
+      ["Matched clip", formatTimestamp(result.timestamp)],
+      ["Confidence", result.score.toFixed(2)],
+      ["Incident", result.incident],
+      ["Status", result.status],
     ].forEach(([label, value]) => {
-      const row = document.createElement("div");
-      row.appendChild(createElement("dt", label));
-      row.appendChild(createElement("dd", value));
-      details.appendChild(row);
+      details.appendChild(renderResultRow(label, value));
     });
 
     article.appendChild(heading);
@@ -97,9 +103,9 @@ function findMatchingQuery(queries, value) {
     if (normalizedValue === prompt || normalizedValue === label) {
       score = 100;
     } else if (normalizedValue.includes(prompt) || prompt.includes(normalizedValue)) {
-      score = 50;
+      score = 55;
     } else if (normalizedValue.includes(label) || label.includes(normalizedValue)) {
-      score = 40;
+      score = 45;
     }
 
     prompt.split(/\s+/).forEach((word) => {

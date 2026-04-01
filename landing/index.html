@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SentrySearch: Search Dashcam and Security Video with Natural Language</title>
+    <title>SentrySearch: Smart Video Search for Dashcams</title>
     <meta
       name="description"
       content="SentrySearch searches dashcam and security footage in natural language and automatically trims the matching clip."
@@ -13,110 +13,408 @@
       property="og:title"
       content="SentrySearch: Search Dashcam and Security Video with Natural Language"
     />
+    <meta
+      property="og:description"
+      content="SentrySearch helps you search dashcam footage and security footage in natural language, review driving incidents faster, and save the matched clip without a long manual scrub."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sentrysearch.com/" />
     <link rel="stylesheet" href="./styles.css" />
     <script defer src="./app.js"></script>
   </head>
   <body>
     <main class="page-shell">
+      <header class="site-header">
+        <a class="brand-mark" href="./index.html" aria-label="SentrySearch home">
+          <span class="brand-badge">S</span>
+          <span class="brand-copy">
+            <strong>SentrySearch</strong>
+            <span>Video incident search</span>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#definition">Product</a>
+          <a href="./about.html">About</a>
+          <a href="./privacy.html">Privacy</a>
+          <a href="./terms.html">Terms</a>
+        </nav>
+      </header>
+
       <section id="hero" class="hero" aria-labelledby="hero-title">
-        <div class="section-shell hero-shell">
-          <p class="eyebrow">Search dashcam and security footage in natural language.</p>
-          <h1 id="hero-title">
-            SentrySearch: Search Dashcam and Security Video with Natural Language
-          </h1>
-          <p class="lede">
-            Describe the moment you need and SentrySearch finds the matching clip, automatically
-            trimming the matching clip so the answer is ready to review.
-          </p>
-          <nav class="hero-actions" aria-label="Primary calls to action">
-            <a href="#sample-search">Try the sample search</a>
-            <a href="https://github.com/jannahuang123/sentrysearch" rel="noopener noreferrer"
-              >View on GitHub</a
-            >
-          </nav>
-        </div>
-      </section>
-
-      <section id="definition" class="content-section" aria-labelledby="definition-title">
-        <div class="section-shell copy-shell">
-          <h2 id="definition-title">What is SentrySearch?</h2>
-          <p>
-            SentrySearch is a natural-language search tool for dashcam and security footage. It
-            turns a question into a relevant clip so you can jump straight to the moment that
-            matters.
-          </p>
-        </div>
-      </section>
-
-      <section id="use-cases" class="content-section" aria-labelledby="use-cases-title">
-        <div class="section-shell copy-shell">
-          <h2 id="use-cases-title">Common use cases</h2>
-          <ul class="feature-list">
-            <li>Find the moment a car cut in front of me</li>
-            <li>Find when someone approached the driveway</li>
-            <li>Find the clip with a red truck near the stop sign</li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="sample-search" class="content-section" aria-labelledby="sample-search-title">
-        <div class="section-shell">
-          <div class="demo-shell">
-            <div class="copy-shell">
-              <h2 id="sample-search-title">Sample search</h2>
-              <p>
-                This demo-only sample search is powered by bundled example data and does not
-                process live user footage or backend inference.
+        <div class="hero-stage">
+          <div class="hero-backdrop" aria-hidden="true"></div>
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="eyebrow">Natural language video incident search for dashcam and security teams</p>
+              <h1 id="hero-title">
+                Search your drive like<br />
+                a search engine with SentrySearch.
+              </h1>
+              <p class="lede">
+                Search dashcam and security footage in natural language with a product built for
+                fast incident review. SentrySearch automatically trims the matching clip so you can
+                stop scrubbing through hours of video, describe what happened, surface the best
+                matched clip, and export a short result that is ready to share with an insurer,
+                operations lead, or security teammate.
               </p>
-            </div>
-            <div class="query-list">
-              <div id="sample-presets" aria-label="Sample search presets"></div>
-              <div id="sample-results" aria-live="polite"></div>
-            </div>
-            <form id="sample-search-form" class="demo-form">
-              <label for="sample-query-input">Search the demo footage</label>
-              <div class="input-row">
-                <input
-                  id="sample-query-input"
-                  name="query"
-                  type="text"
-                  autocomplete="off"
-                  spellcheck="false"
-                />
-                <button type="submit">Search sample clips</button>
+              <div class="hero-actions" aria-label="Primary calls to action">
+                <a href="#sample-search">Try the sample search</a>
+                <a href="https://github.com/jannahuang123/sentrysearch" rel="noopener noreferrer"
+                  >View on GitHub</a
+                >
               </div>
-            </form>
+              <ul class="hero-points" aria-label="Key product benefits">
+                <li>SentrySearch turns natural language into fast video incident search.</li>
+                <li>SentrySearch shortens incident review for driving incidents and driveway alerts.</li>
+                <li>SentrySearch keeps the workflow local while preparing a matched clip for review.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="hero-showcase">
+            <div class="hero-visual">
+              <div class="visual-chip">AI video analytics active</div>
+              <div class="visual-tag tag-one">Vehicle_001</div>
+              <div class="visual-tag tag-two">Traffic light red</div>
+              <div class="visual-tag tag-three">Lane merge event</div>
+            </div>
+
+            <aside class="hero-panel" aria-label="SentrySearch product preview">
+              <div class="panel-topbar">
+                <span>SentrySearch Console</span>
+                <span class="panel-status">Clip extraction ready</span>
+              </div>
+              <div class="panel-query">
+                <p class="panel-label">Search query</p>
+                <strong>Find the parking lot incident where a gray SUV opened a door into my car</strong>
+              </div>
+              <div class="panel-stack">
+                <section class="metric-card">
+                  <p class="panel-label">Matched clip</p>
+                  <strong>Door contact, row C, 08:41 PM</strong>
+                  <span>Front left camera</span>
+                </section>
+                <section class="metric-card">
+                  <p class="panel-label">Confidence</p>
+                  <strong>0.97</strong>
+                  <span>Ranked from 3 camera views</span>
+                </section>
+                <section class="metric-card">
+                  <p class="panel-label">Clip range</p>
+                  <strong>00:12 - 00:34</strong>
+                  <span>Saved for incident review</span>
+                </section>
+                <section class="metric-card">
+                  <p class="panel-label">Incident tags</p>
+                  <strong>Parking lot incident</strong>
+                  <span>Impact, person, vehicle door</span>
+                </section>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
 
-      <section id="how-it-works" class="content-section" aria-labelledby="how-it-works-title">
-        <div class="section-shell copy-shell">
-          <h2 id="how-it-works-title">How it works</h2>
+      <section class="proof-strip" aria-label="Proof points">
+        <div class="proof-grid">
+          <article class="proof-card">
+            <h2>Built for dashcam footage</h2>
+            <p>
+              SentrySearch helps drivers, fleets, and Tesla owners search dashcam footage for the
+              exact driving incidents that matter.
+            </p>
+          </article>
+          <article class="proof-card">
+            <h2>Also works with security footage</h2>
+            <p>
+              SentrySearch supports security footage, driveway camera clips, porch views, and
+              parking lot incident review when a normal timeline scrub is too slow.
+            </p>
+          </article>
+          <article class="proof-card">
+            <h2>Clip extraction in one flow</h2>
+            <p>
+              SentrySearch does more than search. It helps produce a matched clip that can move
+              straight into a report, handoff, or incident archive.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="definition" class="seo-section" aria-labelledby="definition-title">
+        <div class="section-copy">
+          <h2 id="definition-title">What Is SentrySearch?</h2>
+          <p class="micro-copy">What is SentrySearch? It is a direct answer to video incident search.</p>
           <p>
-            SentrySearch indexes video moments, matches the language in your request, and surfaces
-            the clip that best fits the event you described.
+            SentrySearch is a focused term for natural language video incident search. In plain
+            English, SentrySearch means you can ask for a moment in dashcam footage or security
+            footage the same way you would ask a teammate: find the clip where a car cut in front
+            of me, find the parking lot incident near the cart return, or find when someone walked
+            up the driveway camera at night. SentrySearch translates that request into a practical
+            workflow for incident review, ranking relevant moments and preparing a matched clip.
+          </p>
+          <p>
+            The reason SentrySearch matters is simple. Most teams still review dashcam footage and
+            security footage by dragging a timeline and hoping they stop on the right second.
+            SentrySearch makes that process feel more like search and less like manual footage
+            hunting. That makes SentrySearch useful for solo drivers, fleet managers, homeowners,
+            and operators who need a clip extraction workflow that feels clear, direct, and fast.
           </p>
         </div>
       </section>
 
-      <section id="faq" class="content-section" aria-labelledby="faq-title">
-        <div class="section-shell copy-shell">
-          <h2 id="faq-title">FAQ</h2>
+      <section id="why-use" class="seo-section" aria-labelledby="why-use-title">
+        <div class="section-copy">
+          <h2 id="why-use-title">Why Teams Use SentrySearch</h2>
+          <p>
+            Teams adopt SentrySearch because incident review is rarely just one search. A manager
+            might need the first approach, the moment of impact, and the recovery path. A driver
+            might need a matched clip that shows a merge, a hard brake, or a red light dispute. A
+            homeowner might need a driveway camera result that confirms timing, direction, and
+            people involved. SentrySearch reduces those loops by making video incident search more
+            conversational and by keeping the result anchored to the footage that matters.
+          </p>
+          <p>
+            SentrySearch also reads as a serious product, not a vague AI promise. The product goal
+            is not to decorate a dashboard with buzzwords. The goal is to help someone open
+            dashcam footage or security footage, type a natural request, review a matched clip, and
+            complete clip extraction with enough confidence to act. For North American users, that
+            maps directly to common workflows such as claims review, fleet safety follow-up,
+            parking lot incident verification, visitor checks, and overnight property monitoring.
+          </p>
+        </div>
+      </section>
+
+      <section id="use-cases" class="scene-section" aria-labelledby="scene-title">
+        <div class="section-copy">
+          <h2 id="scene-title">Real scenes SentrySearch is built to surface</h2>
+          <p>
+            These are the kinds of requests that make SentrySearch feel obvious the first time you
+            use it: Find the moment a car cut in front of me. Find when someone approached the
+            driveway. Find the clip with a red truck near the stop sign.
+          </p>
+        </div>
+        <div class="scene-grid">
+          <article class="scene-card">
+            <img
+              src="./assets/driving-incidents.jpg"
+              alt="Night highway scene representing dashcam footage search"
+            />
+            <div class="scene-copy">
+              <h3>Driving incidents</h3>
+              <p>
+                Use SentrySearch to review cut-ins, sudden braking, lane merges, and road rage
+                moments without replaying the whole drive.
+              </p>
+            </div>
+          </article>
+          <article class="scene-card">
+            <img
+              src="./assets/parking-incident.jpg"
+              alt="Parking lot scene representing parking lot incident review"
+            />
+            <div class="scene-copy">
+              <h3>Parking lot incident review</h3>
+              <p>
+                SentrySearch helps isolate door dings, low-speed contact, suspicious walk-bys, and
+                matched clip evidence from parked vehicle cameras.
+              </p>
+            </div>
+          </article>
+          <article class="scene-card">
+            <img
+              src="./assets/driveway-security.jpg"
+              alt="Driveway home camera scene representing security footage search"
+            />
+            <div class="scene-copy">
+              <h3>Driveway camera and security footage</h3>
+              <p>
+                Search security footage for package drops, visitor approach, vehicle arrival, or
+                late-night motion around a driveway camera.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="dashcam" class="seo-section" aria-labelledby="dashcam-title">
+        <div class="section-copy">
+          <h2 id="dashcam-title">SentrySearch For Dashcam Footage</h2>
+          <p>
+            SentrySearch is especially strong when the main job is to search dashcam footage. The
+            best dashcam workflow is rarely about watching everything. It is about narrowing the
+            moment that matters. SentrySearch makes that possible with prompts that feel natural:
+            find the truck that drifted into my lane, find the matched clip where the car ahead
+            slammed on the brakes, find the driving incidents around the red light at 5:12 PM, or
+            find the parking lot incident after I parked near the entrance. These are not abstract
+            prompts. They are the language real users already use when they need evidence.
+          </p>
+          <p>
+            Because SentrySearch is framed around incident review, the output is more useful than a
+            vague search result. A good SentrySearch result should show the matched clip, the
+            camera source, the short time range, and whether the clip extraction is ready. That
+            structure helps users move from search to action with less friction. For a North
+            American audience, that matters because dashcam footage is often reviewed under time
+            pressure, after stressful driving incidents, or during follow-up with insurance and
+            fleet operations.
+          </p>
+          <h3>Common dashcam queries inside SentrySearch</h3>
+          <p>
+            Search dashcam footage for the moment a car cut in front of me. Search dashcam footage
+            for the matched clip where a gray SUV opened a door into my parked car. Search dashcam
+            footage for the incident review around a freeway merge. Search dashcam footage for the
+            parking lot incident near the cart corral. Search dashcam footage for the red truck by
+            the stop sign. SentrySearch is meant to handle queries that look like this because that
+            is how people naturally describe a video incident search problem.
+          </p>
+        </div>
+      </section>
+
+      <section id="security" class="seo-section" aria-labelledby="security-title">
+        <div class="section-copy">
+          <h2 id="security-title">SentrySearch For Security Footage</h2>
+          <p>
+            SentrySearch also works when the footage source is not a vehicle. Security footage is
+            full of moments that should be searchable but often are not. A driveway camera might
+            catch a person approaching the gate. A porch camera might see a package drop. A garage
+            camera might record a vehicle stopping for a few seconds and then leaving. SentrySearch
+            turns those requests into a search workflow that is easier to explain to teammates and
+            easier to repeat over time.
+          </p>
+          <p>
+            The value of SentrySearch for security footage is consistency. If you regularly inspect
+            late-night events, unusual movement, or visitor checks, SentrySearch gives you one
+            common language for video incident search across different cameras. That matters for a
+            small business owner checking overnight security footage, for a property manager
+            reviewing driveway camera footage after a report, and for a household that wants quick
+            clip extraction without a full hosted upload flow. SentrySearch keeps the promise
+            grounded: ask clearly, review quickly, save the matched clip, and move on.
+          </p>
+          <h3>Common security footage queries inside SentrySearch</h3>
+          <p>
+            Search security footage for someone approaching the driveway camera. Search security
+            footage for the matched clip with a white van near the mailbox. Search security footage
+            for a parking lot incident behind the building. Search security footage for the first
+            person who walked across the lobby after midnight. SentrySearch fits these tasks
+            because it is designed around plain language, incident review, and lightweight clip
+            extraction instead of endless manual scrubbing.
+          </p>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="seo-section" aria-labelledby="how-it-works-title">
+        <div class="section-copy">
+          <h2 id="how-it-works-title">How SentrySearch Works</h2>
+          <div class="steps-grid">
+            <article class="step-card">
+              <h3>1. Index the footage</h3>
+              <p>
+                SentrySearch prepares dashcam footage or security footage so search can happen on
+                meaningful moments instead of raw file names.
+              </p>
+            </article>
+            <article class="step-card">
+              <h3>2. Describe the incident</h3>
+              <p>
+                Type what happened in natural language. SentrySearch ranks the likely event and
+                identifies the matched clip for incident review.
+              </p>
+            </article>
+            <article class="step-card">
+              <h3>3. Save the result</h3>
+              <p>
+                Review the matched clip, confirm the camera and time range, and use SentrySearch to
+                complete clip extraction for sharing or follow-up.
+              </p>
+            </article>
+          </div>
+          <h4>Why this workflow works</h4>
+          <p>
+            SentrySearch works because each step is aligned with how users already think about
+            video. They remember events, not timestamps. They remember a parking lot incident, a
+            door swing, a driveway camera approach, or a bad merge. SentrySearch gives those
+            memories a direct path to the right footage.
+          </p>
+        </div>
+      </section>
+
+      <section id="sample-search" class="seo-section" aria-labelledby="sample-search-title">
+        <div class="demo-shell">
+          <div class="section-copy">
+            <h2 id="sample-search-title">Sample Search Demo</h2>
+            <p>
+              This demo-only SentrySearch experience uses bundled example data and does not process
+              live user footage or backend inference. The goal is to show how SentrySearch presents
+              a matched clip, camera source, confidence, and clip extraction status during incident
+              review.
+            </p>
+          </div>
+          <div class="query-list">
+            <div class="demo-layout">
+              <div class="demo-column demo-workbench">
+                <div class="demo-header">
+                  <h3>Try a SentrySearch query</h3>
+                  <p>
+                    Pick a real incident workflow, then edit the query below to see how the result
+                    set changes across cameras and clip extraction states.
+                  </p>
+                </div>
+                <div class="preset-shell">
+                  <div id="sample-presets" aria-label="Sample search presets"></div>
+                </div>
+                <form id="sample-search-form" class="demo-form">
+                  <label for="sample-query-input">Search the bundled example data</label>
+                  <div class="input-row">
+                    <input
+                      id="sample-query-input"
+                      name="query"
+                      type="text"
+                      autocomplete="off"
+                      spellcheck="false"
+                    />
+                    <button type="submit">Search sample clips</button>
+                  </div>
+                </form>
+              </div>
+              <div class="demo-column result-column">
+                <h3>Incident review output</h3>
+                <div id="sample-results" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="seo-section" aria-labelledby="faq-title">
+        <div class="section-copy">
+          <h2 id="faq-title">SentrySearch FAQ</h2>
           <dl class="faq-list">
             <div>
-              <dt>Does SentrySearch upload my videos?</dt>
-              <dd>No. You can keep the workflow local and control where your footage lives.</dd>
-            </div>
-            <div>
-              <dt>Can I run SentrySearch locally?</dt>
-              <dd>Yes. It is designed to run on your own machine for local searches.</dd>
-            </div>
-            <div>
-              <dt>Is this a Tesla Sentry Mode tool only?</dt>
+              <dt><h3>Does SentrySearch upload my videos?</h3></dt>
               <dd>
-                No. SentrySearch is built for dashcam and security footage, not just Tesla Sentry
-                Mode clips.
+                No. This page shows a demo with bundled example data, while the product direction
+                stays focused on local workflows and fast clip extraction.
+              </dd>
+            </div>
+            <div>
+              <dt><h4>Can I run SentrySearch locally?</h4></dt>
+              <dd>
+                Yes. You can run SentrySearch locally, keep your dashcam footage or security
+                footage under your control, and evaluate the workflow before any hosted offering.
+              </dd>
+            </div>
+            <div>
+              <dt><h5>Is this a Tesla Sentry Mode tool only?</h5></dt>
+              <dd>
+                No. SentrySearch is useful for Tesla owners, dashcam users, fleets, and security
+                footage workflows that need video incident search.
+              </dd>
+            </div>
+            <div>
+              <dt><h6>Can SentrySearch help with a parking lot incident?</h6></dt>
+              <dd>
+                Yes. Parking lot incident review is one of the clearest SentrySearch use cases,
+                especially when multiple camera angles need a matched clip.
               </dd>
             </div>
           </dl>
@@ -124,10 +422,16 @@
       </section>
 
       <section id="final-cta" class="cta-band" aria-labelledby="final-cta-title">
-        <div class="section-shell cta-shell">
-          <div class="copy-shell">
-            <h2 id="final-cta-title">Ready to try it?</h2>
-            <p>Choose the path that fits your setup today.</p>
+        <div class="cta-shell">
+          <div class="section-copy">
+            <h2 id="final-cta-title">Run SentrySearch locally and validate the workflow now</h2>
+            <p>
+              If SentrySearch matches the way your team reviews dashcam footage, security footage,
+              and driving incidents, start locally today and request the hosted roadmap when you
+              are ready. Run SentrySearch locally when you want the full product story, and use
+              Run locally today if you want the fastest path into the repo. Request a hosted demo
+              when you want to discuss the SaaS version next.
+            </p>
           </div>
           <nav aria-label="Final calls to action">
             <a href="https://github.com/jannahuang123/sentrysearch">Run locally today</a>
@@ -135,6 +439,48 @@
           </nav>
         </div>
       </section>
+
+      <footer class="site-footer">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand-mark" href="./index.html" aria-label="SentrySearch home">
+              <span class="brand-badge">S</span>
+              <span class="brand-copy">
+                <strong>SentrySearch</strong>
+                <span>Natural language search for dashcam footage and security footage.</span>
+              </span>
+            </a>
+            <p>
+              SentrySearch is a focused product for incident review, matched clip retrieval, and
+              practical clip extraction across driving incidents and security footage workflows.
+            </p>
+          </div>
+          <div class="footer-links">
+            <div>
+              <h3>Company</h3>
+              <a href="./about.html">About</a>
+              <a href="./index.html#why-use">Use cases</a>
+              <a href="mailto:hello@sentrysearch.com">Contact</a>
+            </div>
+            <div>
+              <h3>Legal</h3>
+              <a href="./privacy.html">Privacy</a>
+              <a href="./terms.html">Terms</a>
+              <a href="./robots.txt">Robots</a>
+            </div>
+            <div>
+              <h3>Product</h3>
+              <a href="./index.html#sample-search">Sample demo</a>
+              <a href="https://github.com/jannahuang123/sentrysearch">GitHub</a>
+              <a href="./sitemap.xml">Sitemap</a>
+            </div>
+          </div>
+        </div>
+        <p class="footer-meta">
+          © 2026 SentrySearch. Built for professional incident review workflows with transparent
+          product, privacy, and usage terms.
+        </p>
+      </footer>
     </main>
   </body>
 </html>
