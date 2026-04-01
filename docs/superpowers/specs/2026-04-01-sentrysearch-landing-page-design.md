@@ -167,6 +167,24 @@ The implementation should include:
 - Open Graph title and description
 - descriptive heading structure with a single H1
 - crawlable text for all key claims
+- a copy structure designed for a single-page SEO document, not just a visual landing page
+
+### SEO Content Targets
+
+The landing page should be written as a substantial SEO-first product page in English.
+
+Content targets:
+
+- total body copy target: roughly 1,500 to 2,000 words
+- `SentrySearch` keyword density target: roughly 3% to 5%
+- the keyword `SentrySearch` should appear naturally across the heading hierarchy, including H1 and selected H2-H6 headings where it makes semantic sense
+- keyword usage should remain readable and intentional, never obviously stuffed
+
+The keyword density target is a constraint for implementation and editorial review, not a license to repeat the word unnaturally. Natural readability and search quality both matter.
+
+### Keyword Coverage Strategy
+
+The page should treat `SentrySearch` as the anchor term, then support it with adjacent intent terms, scenario words, and semantic variants.
 
 Suggested primary keyword:
 
@@ -179,6 +197,56 @@ Suggested support keywords:
 - `natural language video search`
 - `AI video search`
 - `trim clip from video`
+
+Required scenario and variant coverage should also include natural use of phrases such as:
+
+- `dashcam footage`
+- `security footage`
+- `driving incidents`
+- `parking lot incident`
+- `driveway camera`
+- `incident review`
+- `clip extraction`
+- `matched clip`
+- `video incident search`
+
+These words and variants should be distributed naturally across the page, especially in explanatory sections, scenario sections, FAQ, and supporting headings.
+
+### Heading Strategy
+
+The page should use a heading structure that helps both readers and search engines understand the term and its applications.
+
+Recommended pattern:
+
+- H1: direct term-definition headline with `SentrySearch`
+- H2s: major sections such as definition, use-case domains, workflow, FAQ
+- H3-H6: supporting subtopics where useful, especially for scenario clusters and FAQ depth
+
+The heading system should naturally incorporate `SentrySearch` in multiple places, but not in every heading.
+
+### Meta Requirements
+
+Meta information should be written for ranking quality and click-through rate, not just presence.
+
+Requirements:
+
+- page title should lead with `SentrySearch` and clearly define what it does
+- meta description should describe the product in plain search-friendly language and include relevant incident/video intent
+- Open Graph title and description should remain aligned with the search title and description
+- canonical should point to the final production URL for the landing page
+
+### Fast Launch SEO Principle
+
+The fastest path to ranking is preferred over broader content architecture.
+
+That means:
+
+- launch one strong landing page first
+- do not block launch on building a cluster of supporting pages
+- do not add complex CMS, search backends, or multi-page SEO infrastructure before the first publish
+- concentrate relevance, copy depth, and keyword coverage into one page that can ship quickly
+
+This project should optimize for shipping a strong first SEO page fast, then expanding later if needed.
 
 The page should remain centered on the invented term `SentrySearch`, rather than becoming a generic AI video landing page.
 
@@ -315,6 +383,15 @@ De-emphasize language around:
 - automation hype
 - generic platform claims
 
+The copy should also be written to satisfy the approved SEO constraints:
+
+- enough depth to reach the target word count range
+- intentional repetition of `SentrySearch` within the approved density band
+- natural integration of variant terms and scenario language
+- heading copy that helps search engines map the term to concrete use cases
+
+The final result should read like a high-quality product article and homepage combined, not like a keyword-stuffed SEO document.
+
 ## Implementation Impact
 
 Any future visual implementation should treat the current landing page as functionally correct but stylistically provisional.
@@ -322,9 +399,14 @@ Any future visual implementation should treat the current landing page as functi
 The next implementation phase should focus on:
 
 - reworking the page into the approved dark visual system
+- rewriting the page copy into a 1,500-2,000 word SEO-first single-page document
+- checking `SentrySearch` density during implementation and final review
+- ensuring heading hierarchy, meta information, and scenario coverage support search ranking goals
 - replacing the current light SaaS styling
 - introducing product-panel compositions and scene-backed visuals
 - preserving all existing product boundaries, copy constraints, CTA intent, and demo-only behavior
+
+Quick launch remains the top delivery priority. Implementation choices should favor direct static-page edits that can be published fast.
 
 ## Non-Goals
 
