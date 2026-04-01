@@ -81,8 +81,13 @@ dt {
 }
 
 h1 {
-  font-size: clamp(2.8rem, 6vw, 5rem);
-  max-width: 14ch;
+  font-size: clamp(2.35rem, 4.6vw, 4.2rem);
+  max-width: none;
+}
+
+.hero-line {
+  display: block;
+  white-space: normal;
 }
 
 h2 {
@@ -103,7 +108,7 @@ p {
 }
 
 main {
-  overflow: clip;
+  overflow: visible;
 }
 
 .page-shell {
@@ -191,6 +196,7 @@ main {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
+  padding-top: 0;
 }
 
 .hero-grid,
@@ -231,12 +237,15 @@ main {
 .hero-stage {
   position: relative;
   overflow: hidden;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   padding: 46px 0 24px;
   border: 0;
   border-radius: 0;
   background:
-    linear-gradient(180deg, rgba(6, 11, 22, 0.38), rgba(6, 11, 22, 0.86)),
-    url("./assets/hero.png") center / cover no-repeat;
+    linear-gradient(180deg, rgba(6, 11, 22, 0.12), rgba(6, 11, 22, 0.46)),
+    url("./assets/hero.png") center top / cover no-repeat;
   box-shadow: none;
 }
 
@@ -245,17 +254,17 @@ main {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.16), transparent 10%),
-    radial-gradient(circle at 66% 32%, rgba(255, 255, 255, 0.14), transparent 7%),
-    radial-gradient(circle at 78% 52%, rgba(255, 255, 255, 0.09), transparent 5%),
-    linear-gradient(180deg, rgba(7, 12, 24, 0.18), rgba(7, 12, 24, 0.28));
-  backdrop-filter: blur(12px);
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.08), transparent 10%),
+    radial-gradient(circle at 66% 32%, rgba(255, 255, 255, 0.08), transparent 7%),
+    radial-gradient(circle at 78% 52%, rgba(255, 255, 255, 0.04), transparent 5%),
+    linear-gradient(180deg, rgba(7, 12, 24, 0.03), rgba(7, 12, 24, 0.14));
+  backdrop-filter: blur(4px);
 }
 
 .hero-copy {
   position: relative;
   z-index: 1;
-  max-width: 900px;
+  max-width: 1160px;
   padding: 72px 18px 18px;
   text-align: center;
   border: 0;
@@ -897,5 +906,9 @@ dd {
 
   h1 {
     max-width: none;
+  }
+
+  .hero-line {
+    white-space: normal;
   }
 }
